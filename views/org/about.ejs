@@ -1,0 +1,46 @@
+<% layout("/layouts/boilerPlate.ejs") %>
+
+<div class="hero">
+    <h1>Welcome to AgriOn</h1>
+    <p>Bringing Agriculture Online for a Sustainable Future</p>
+</div>
+
+<div class="container">
+    <div class="info-section">
+        <img src="https://images.pexels.com/photos/974314/pexels-photo-974314.jpeg" alt="Agriculture Online">
+        <div class="info-content">
+            <p>
+                At AgriOn, we are committed to empowering farmers by bridging the gap between traditional agriculture and modern technology. Our platform offers access to premium seedlings, advanced tools, and expert guidance, ensuring that every farmer can achieve optimal yields and sustainable practices.
+            </p>
+        </div>
+    </div>
+
+    <div class="features">
+        <div class="feature-item">
+            <h3>🌱 High-Quality Seedlings</h3>
+            <p>Our curated selection of seedlings is designed to provide robust growth and high yields, tailored to diverse agricultural needs.</p>
+        </div>
+        <div class="feature-item">
+            <h3>📦 Seamless Ordering & Delivery</h3>
+            <p>Experience a hassle-free process with our user-friendly platform, ensuring timely delivery of agricultural essentials right to your doorstep.</p>
+        </div>
+        <div class="feature-item">
+            <h3>📘 Expert Agricultural Advice</h3>
+            <p>Stay informed with the latest farming techniques and best practices through our comprehensive resources and expert consultations.</p>
+        </div>
+        <div class="feature-item">
+            <h3>🤝 Community Engagement</h3>
+            <p>Join a vibrant community of farmers and agricultural enthusiasts, fostering collaboration, support, and shared growth.</p>
+        </div>
+    </div>
+
+    <div class="cta">
+        <h2>Join the AgriOn Community Today!</h2>
+        <p>Embark on a journey towards innovative and sustainable farming with AgriOn. Together, we can cultivate success.</p>
+        <% if(!currUser){ %>
+            <a href="/signup" class="btn">Get Started</a>
+        <% } %> <% if(currUser){ %>
+            <a href="/listings" class="btn">Get Started</a>
+        <% } %>
+    </div>
+</div>

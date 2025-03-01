@@ -1,0 +1,76 @@
+<%- layout("/layouts/boilerPlate.ejs") %>
+
+<!-- Hero Section -->
+<div class="hero">
+    <h1>Explore Agricultural Accessories</h1>
+    <p>Find the best tools, irrigation systems, and fertilizers to enhance your farming.</p>
+</div>
+
+<!-- Filter Section -->
+<div class="filter-buttons">
+    <button class="filter-btn active" onclick="filterAccessories('all')">All</button>
+    <button class="filter-btn" onclick="filterAccessories('tools')">Tools</button>
+    <button class="filter-btn" onclick="filterAccessories('irrigation')">Irrigation</button>
+    <button class="filter-btn" onclick="filterAccessories('fertilizers')">Fertilizers</button>
+</div>
+
+<!-- Accessories Grid -->
+<div class="container accessories-grid">
+    <div class="accessory-item tools">
+        <img src="https://images.pexels.com/photos/28454280/pexels-photo-28454280/free-photo-of-traditional-vietnamese-farmer-in-green-field.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Agricultural Tool">
+        <h3>Hand Trowel</h3>
+        <p>Perfect for planting and soil loosening.</p>
+    </div>
+
+    <div class="accessory-item tools">
+        <img src="https://images.pexels.com/photos/4503269/pexels-photo-4503269.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Garden Hoe">
+        <h3>Garden Hoe</h3>
+        <p>Essential for weeding and soil shaping.</p>
+    </div>
+
+    <div class="accessory-item irrigation">
+        <img src="https://images.pexels.com/photos/28665210/pexels-photo-28665210/free-photo-of-rustic-water-spout-dripping-into-stone-trough.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Drip Irrigation Kit">
+        <h3>Drip Irrigation Kit</h3>
+        <p>Water-efficient solution for your crops.</p>
+    </div>
+
+    <div class="accessory-item irrigation">
+        <img src="https://images.pexels.com/photos/17326319/pexels-photo-17326319/free-photo-of-360-degree-automatic-garden-sprinkler.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Sprinkler System">
+        <h3>Sprinkler System</h3>
+        <p>Ensures even water distribution in your fields.</p>
+    </div>
+
+    <div class="accessory-item fertilizers">
+        <img src="https://images.pexels.com/photos/4751990/pexels-photo-4751990.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Organic Fertilizer">
+        <h3>Organic Fertilizer</h3>
+        <p>Boosts soil health for better yields.</p>
+    </div>
+
+    <div class="accessory-item fertilizers">
+        <img src="https://images.pexels.com/photos/5503338/pexels-photo-5503338.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Compost Pack">
+        <h3>Compost Pack</h3>
+        <p>Rich in nutrients for healthy plant growth.</p>
+    </div>
+</div>
+
+<!-- JavaScript for Filtering -->
+<script>
+    function filterAccessories(category) {
+        let items = document.querySelectorAll('.accessory-item');
+        let buttons = document.querySelectorAll('.filter-btn');
+
+        // Remove active class from all buttons
+        buttons.forEach(btn => btn.classList.remove('active'));
+
+        // Add active class to the clicked button
+        event.target.classList.add('active');
+
+        items.forEach(item => {
+            if (category === 'all') {
+                item.style.display = 'block';
+            } else {
+                item.style.display = item.classList.contains(category) ? 'block' : 'none';
+            }
+        });
+    }
+</script>

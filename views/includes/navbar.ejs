@@ -1,0 +1,99 @@
+<nav class="navbar navbar-expand-lg border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings">
+      <i class="fa-solid fa-seedling"></i>
+      AgriOn
+      <div class="desc">
+        <p>Agriculture Online</p>
+      </div>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/listings">Explore</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/accessories">Accessories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/gallery">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about-us">About Us</a>
+        </li>
+      </ul>
+
+      <div class="search ms-auto">
+        <nav class="navbar-nav">
+          <div class="container-fluid">
+            <form class="d-flex" role="search">
+              <input class="form-control me-2 search-bar" type="search" placeholder="Search Plants | Accessories..." aria-label="Search">
+              <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+            </form>
+          </div>
+        </nav>
+      </div>
+
+      <div class="ms-auto">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/listings/new">Make Plant Online</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/contact-us">Contact Us</a>
+          </li>
+          <% if(!currUser){ %>
+          <li class="nav-item">
+            <a class="nav-link" href="/signup"><b>Sign up</b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login"><b>Log in</b></a>
+          </li>
+          <% } %> <% if(currUser){ %>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout"><b>Log out</b></a>
+          </li>
+          <% } %>
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+            >
+              <span data-key="language">Language</span>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item lang-option" href="#" data-lang="en"
+                  >English</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item lang-option" href="#" data-lang="kn"
+                  >Kannada</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item lang-option" href="#" data-lang="te"
+                  >Telugu</a
+                >
+              </li>
+            </ul>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

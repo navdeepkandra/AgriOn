@@ -1,0 +1,88 @@
+<% layout('/layouts/boilerPlate') %>
+<div class="row mt-3">
+  <div class="col-8 offset-2">
+    <h2 class="fw-bold text-success text-center mt-3">Commercialise Your Plant</h2>
+    <p class="text-center text-muted">List your plant for sale and reach potential buyers</p>
+    <form method="POST" action="/listings" novalidate class="needs-validation form-container" enctype="multipart/form-data">
+      <div class="mb-3 mt-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+          name="listing[title]"
+          placeholder="Enter title"
+          type="text"
+          class="form-control"
+          required
+        />
+        <div class="valid-feedback">Title looks good!</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea name="listing[description]" class="form-control" required></textarea>
+        <div class="invalid-feedback">Please write a short description</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label">Upload Image</label>
+        <input
+          name="listing[image]"
+          type="file"
+          class="form-control"
+          required
+        />
+      </div>
+
+      <div class="row">
+        <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Price</label>
+            <input
+              name="listing[price]"
+              placeholder="10"
+              class="form-control"
+              required
+            />
+            <div class="invalid-feedback">Price should be valid</div>
+          </div>
+
+          <div class="mb-3 col-md-8">
+            <label for="country" class="form-label">Country</label>
+            <input
+              name="listing[country]"
+              placeholder="India"
+              type="text"
+              class="form-control"
+              required
+            />
+            <div class="invalid-feedback">Country should be valid</div>
+          </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="germinated_period" class="form-label"
+          >Germinated Period</label
+        >
+        <input
+          name="listing[germinated_period]"
+          placeholder="30"
+          type="number"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">Germinated period should be valid</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input
+          name="listing[location]"
+          placeholder="Bangalore, Karnataka"
+          type="text"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">Location should be valid</div>
+      </div>
+      <button class="btn btn-dark add-btn mt-3">Publish</button>
+    </form>
+  </div>
+</div>

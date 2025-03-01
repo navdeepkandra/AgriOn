@@ -1,0 +1,91 @@
+<% layout("/layouts/boilerPlate") %>
+
+<div class="contact-container">
+    <div class="contact-header">
+        <h1 data-key="contact_us">Contact Us</h1>
+    </div>
+    <div class="contact-info">
+        <p><strong data-key="company_address">Company Address:</strong> Chikkahalli, Pavagada, Tumkur, Karnataka-572141</p>
+        <p><strong data-key="contact_numbers">Contact Numbers:</strong> 8197279079 / 9980109123</p>
+        <p><strong data-key="email">Email:</strong> navdeepkandra123@gmail.com</p>
+        <p><strong data-key="working_hours">Working Hours:</strong> Monday - Saturday, 9 AM - 6 PM</p>
+    </div>
+    <form method="POST" novalidate class="contact-form needs-validation">
+        <input type="text" placeholder="Your Name" data-key="your_name" class="form-control" required>
+        <input type="email" placeholder="Your Email" data-key="your_email" class="form-control" required>
+        <textarea placeholder="Your Message" rows="4" data-key="your_message" class="form-control" required></textarea>
+        <button type="submit" data-key="send_message">Send Message</button>
+    </form>
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps?q=Chikkahalli,+Pavagada,+Tumkur,+Karnataka-572141&output=embed" width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen></iframe>
+    </div>
+    <div class="social-links">
+        <a href="https://www.facebook.com/p/Navdeep-Kandra-100085390907926/"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/jrntr/?hl=en"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@navdeepkandra8894"><i class="fab fa-youtube"></i></a>
+    </div>
+</div>
+
+<script>
+    // Language dictionary
+    const translations = {
+        "en": {
+            "language": "Language",
+            "contact_us": "Contact Us",
+            "company_address": "Company Address:",
+            "contact_numbers": "Contact Numbers:",
+            "email": "Email:",
+            "working_hours": "Working Hours:",
+            "your_name": "Your Name",
+            "your_email": "Your Email",
+            "your_message": "Your Message",
+            "send_message": "Send Message"
+        },
+        "kn": {
+            "language": "ಭಾಷೆ",
+            "contact_us": "ಕಾಂಟಾಕ್ಟ್ ಅಸ್",
+            "company_address": "ಕಂಪನಿ ವಿಳಾಸ:",
+            "contact_numbers": "ಸಂಪರ್ಕ ಸಂಖ್ಯೆಗಳು:",
+            "email": "ಇಮೇಲ್:",
+            "working_hours": "ಕೆಲಸದ ಸಮಯಗಳು:",
+            "your_name": "ನಿಮ್ಮ ಹೆಸರು",
+            "your_email": "ನಿಮ್ಮ ಇಮೇಲ್",
+            "your_message": "ನಿಮ್ಮ ಸಂದೇಶ",
+            "send_message": "ಸಂದೇಶ ಕಳುಹಿಸಿ"
+        },
+        "te": {
+            "language": "భాష",
+            "contact_us": "మమ్మల్ని సంప్రదించండి",
+            "company_address": "కంపెనీ చిరునామా:",
+            "contact_numbers": "సంప్రదింపు నంబర్లు:",
+            "email": "ఇమెయిల్:",
+            "working_hours": "పని సమయాలు:",
+            "your_name": "మీ పేరు",
+            "your_email": "మీ ఇమెయిల్",
+            "your_message": "మీ సందేశం",
+            "send_message": "సందేశాన్ని పంపండి"
+        }
+    };
+
+    // Function to update text based on the selected language
+    function changeLanguage(lang) {
+        document.querySelectorAll("[data-key]").forEach(element => {
+            const key = element.getAttribute("data-key");
+            if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
+                element.placeholder = translations[lang][key];
+            } else {
+                element.innerText = translations[lang][key];
+            }
+        });
+    }
+
+    // Attach event listeners to language selection buttons
+    document.querySelectorAll(".lang-option").forEach(item => {
+        item.addEventListener("click", function (e) {
+            e.preventDefault();
+            const lang = this.getAttribute("data-lang");
+            changeLanguage(lang);
+        });
+    });
+</script>

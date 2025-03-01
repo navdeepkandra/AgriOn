@@ -1,0 +1,93 @@
+<% layout('/layouts/boilerPlate') %>
+<div class="mt-3">
+  <!-- Filter Section -->
+  <div class="container-fluid bg-light py-2 shadow-sm filters">
+    <div class="container">
+      <div class="row g-3 align-items-center">
+        <!-- Category Filter -->
+        <div class="col-md-3">
+          <label class="form-label fw-bold">Category</label>
+          <select class="form-select">
+            <option selected>All Categories</option>
+            <option value="seeds">Seeds</option>
+            <option value="plants">Plants</option>
+            <option value="fertilizers">Fertilizers</option>
+            <option value="tools">Tools</option>
+          </select>
+        </div>
+
+        <!-- Price Range Filter -->
+        <div class="col-md-3">
+          <label class="form-label fw-bold">Price Range (₹)</label>
+          <input
+            type="range"
+            class="form-range"
+            min="0"
+            max="5000"
+            step="100"
+            id="priceRange"
+            oninput="updatePriceValue(this.value)"
+          />
+          <small class="text-muted"
+            >₹<span id="priceValue">0</span> - ₹5000</small
+          >
+        </div>
+
+        <!-- Availability Filter -->
+        <div class="col-md-2">
+          <label class="form-label fw-bold">Availability</label>
+          <select class="form-select">
+            <option selected>All</option>
+            <option value="in-stock">In Stock</option>
+            <option value="out-stock">Out of Stock</option>
+          </select>
+        </div>
+
+        <!-- Sorting Filter -->
+        <div class="col-md-2">
+          <label class="form-label fw-bold">Sort By</label>
+          <select class="form-select">
+            <option selected>Relevance</option>
+            <option value="low-to-high">Price: Low to High</option>
+            <option value="high-to-low">Price: High to Low</option>
+            <option value="newest">Newest Arrivals</option>
+          </select>
+        </div>
+
+        <!-- Apply Button -->
+        <div class="col-md-2 text-center">
+          <button class="btn btn-success w-100 mt-3">Apply Filters</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+    <% for(let listing of allListings){ %>
+    <a href="/listings/<%= listing._id %>" class="listing-link">
+      <div class="card listing-card all">
+        <img
+          src="<%= listing.image.url %>"
+          class="card-img-top"
+          alt="listing_image"
+          style="height: 20rem"
+        />
+        <div class="card-img-overlay"></div>
+        <div class="card-body">
+          <p class="card-text-index">
+            <b><%= listing.title %> </b><br />
+            &#8377; <%= listing.price.toLocaleString("en-IN") %>/piece
+          </p>
+        </div>
+      </div>
+    </a>
+    <% } %>
+  </div>
+</div>
+<!-- <form method="GET" action="/listings/new">
+        <button>Add new Plant</button>
+    </form> -->
+<script>
+  function updatePriceValue(value) {
+    document.getElementById("priceValue").textContent = value;
+  }
+</script>

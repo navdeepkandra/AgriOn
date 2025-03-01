@@ -1,0 +1,55 @@
+<% layout("/layouts/boilerPlate.ejs") %>
+
+<div class="hero">
+    <h1>AgriOn Gallery</h1>
+    <p>Explore the beauty of sustainable farming and innovation</p>
+</div>
+
+<div class="container gallery-container">
+    <div class="gallery-grid">
+        <!-- Images (Replace with your actual image URLs) -->
+        <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="https://images.pexels.com/photos/96715/pexels-photo-96715.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
+            <img src="https://images.pexels.com/photos/96715/pexels-photo-96715.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Farm Field">
+        </div>
+        <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="https://images.pexels.com/photos/2886937/pexels-photo-2886937.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
+            <img src="https://images.pexels.com/photos/2886937/pexels-photo-2886937.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Greenhouse">
+        </div>
+        <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="https://images.pexels.com/photos/19486680/pexels-photo-19486680/free-photo-of-green-tractor-with-cubes-of-hay.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
+            <img src="https://images.pexels.com/photos/19486680/pexels-photo-19486680/free-photo-of-green-tractor-with-cubes-of-hay.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Agriculture Machinery">
+        </div>
+        <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="https://images.pexels.com/photos/2252584/pexels-photo-2252584.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
+            <img src="https://images.pexels.com/photos/2252584/pexels-photo-2252584.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Organic Farming">
+        </div>
+        <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="https://images.pexels.com/photos/30898070/pexels-photo-30898070/free-photo-of-close-up-of-farmer-harvesting-green-tea-leaves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
+            <img src="https://images.pexels.com/photos/30898070/pexels-photo-30898070/free-photo-of-close-up-of-farmer-harvesting-green-tea-leaves.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Harvesting Crops">
+        </div>
+        <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-src="https://images.pexels.com/photos/36347/cow-pasture-animal-almabtrieb.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
+            <img src="https://images.pexels.com/photos/36347/cow-pasture-animal-almabtrieb.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Farm Animals">
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap Modal for Image Preview -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Image Preview</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img id="modalImage" src="" alt="Gallery Image" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // JavaScript to handle image modal
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        item.addEventListener('click', function() {
+            let imgSrc = this.getAttribute('data-src');
+            document.getElementById('modalImage').src = imgSrc;
+        });
+    });
+</script>
