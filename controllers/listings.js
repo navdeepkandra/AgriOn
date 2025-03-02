@@ -1,4 +1,5 @@
 const Listing = require("../models/listing");
+const Review = require("../models/review");
 
 module.exports.index = async (req, res) => {
     const allListings = await Listing.find();
@@ -61,11 +62,12 @@ module.exports.updateListing = async (req, res) => {
 module.exports.showListing = async (req, res) => {
     let {id} = req.params;
     const listing = await Listing.findById(id).populate({path: "reviews", populate: { path: "author"}}).populate("owner");
+    let review = await Review.findById(id);
     if(!listing){
         req.flash("error", "Listing you requested for does not exist!");
         res.redirect("/listings");
     }
-    res.render("listings/show.ejs", {listing});
+    res.render("listings/show.ejs", {listing, review});
 }
 
 module.exports.deleteListing = async (req, res) => {
