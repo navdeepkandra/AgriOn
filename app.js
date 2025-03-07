@@ -15,6 +15,7 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
+const Listing = require("./models/listing.js");
 
 const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
@@ -126,6 +127,17 @@ app.get("/accessories", (req, res) => {
 
 app.get("/contact-us", (req, res) => {
     res.render("org/contactus.ejs");
+});
+
+app.get("/search", async (req, res) => {
+    let query = req.query.q;
+    let listings = await Listing.find({country: `${query}`});
+    if(listings.length){
+        res.render("org/search.ejs", {listings, query});
+    } else{
+        req.flash("error", "Requested country is not listed");
+        res.redirect("/listings");
+    }
 });
 
 app.all("*", (req, res, next) => {
