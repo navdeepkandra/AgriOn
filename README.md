@@ -6,8 +6,8 @@ AgriOn is a full-stack web application designed to bridge the gap between farmer
 
 ## 📸 Demo
 
-![AgriOn Home](src/images/demo-home.png)
-> [Agrion](https://agrion-agriculture-online.onrender.com/listings)
+![AgriOn Home](public/home.png)
+> Here is the link >> [Agrion](https://agrion-agriculture-online.onrender.com/listings)
 
 ---
 
@@ -54,13 +54,13 @@ AgriOn/
 ## 📷 Screenshots
 
 ### 🔹 Home Page
-![Home](./public/images/demo-home.png)
+![Home](public/home.png)
 
 ### 🔹 Product Listing
-![Products](./public/images/demo-products.png)
+![Products](public/listing.png)
 
-### 🔹 Admin Dashboard
-![Admin Panel](./public/images/demo-admin.png)
+### 🔹 Commercialize
+![Forml](public/form.png)
 
 ---
 
